@@ -1,0 +1,10 @@
+# requirements_api.txt
+torch
+transformers
+datasets
+pandas
+numpy
+fastapi
+uvicorn
+python-multipart
+requests  # <--- Essential new dependency to fetch scaling info
