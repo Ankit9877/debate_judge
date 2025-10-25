@@ -5,7 +5,8 @@ datasets
 pandas
 numpy
 fastapi
-uvicorn
+uvicorn[standard]
 python-multipart
 protobuf
 requests  # <--- Essential new dependency to fetch scaling info
+
