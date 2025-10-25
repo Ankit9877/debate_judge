@@ -20,7 +20,7 @@ MODEL_NAME_OR_PATH = HF_REPO_NAME
 
 # 3. Set the Scaling Info Path (loads JSON via HTTP request from the Hugging Face raw content URL)
 #    Note: Assumes the file is saved in the 'distilbert_model_for_api/distilbert_webis_out/' path within your HF repo.
-SCALE_INFO_PATH = f"https://huggingface.co/{HF_REPO_NAME}/raw/main/distilbert_model_for_api/distilbert_webis_out/label_scale_info.json"
+SCALE_INFO_PATH = f"https://huggingface.co/{HF_REPO_NAME}/resolve/main/label_scale_info.json"
 MAX_LENGTH = 256
 
 # --- Pydantic Schemas ---
@@ -138,4 +138,5 @@ async def predict_scores(request_data: PredictionRequest, request: Request):
         logical_score=output_map["logical_score"],
         rhetorical_score=output_map["rhetorical_score"],
         all_scores=score_data
+
     )
