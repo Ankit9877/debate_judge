@@ -7,4 +7,5 @@ numpy
 fastapi
 uvicorn
 python-multipart
+protobuf
 requests  # <--- Essential new dependency to fetch scaling info
