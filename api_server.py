@@ -16,7 +16,7 @@ from pydantic import BaseModel
 HF_REPO_NAME = "Ankit18062005/debate-judge" 
 
 # 2. Set the Model Load Path (loads model and tokenizer directly from HF Hub)
-MODEL_NAME_OR_PATH = HF_REPO_NAME
+MODEL_NAME_OR_PATH = f"{HF_REPO_NAME}/best_model"
 
 # 3. Set the Scaling Info Path (loads JSON via HTTP request from the Hugging Face raw content URL)
 #    Note: Assumes the file is saved in the 'distilbert_model_for_api/distilbert_webis_out/' path within your HF repo.
@@ -140,3 +140,4 @@ async def predict_scores(request_data: PredictionRequest, request: Request):
         all_scores=score_data
 
     )
+
