@@ -6,7 +6,7 @@ from typing import List, Dict
 
 import numpy as np
 import torch
-from transformers import DistilBertTokenizerFast, DistilBertForSequenceClassification
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
 from fastapi import FastAPI, Request, HTTPException
 from pydantic import BaseModel
 
@@ -60,8 +60,8 @@ def load_model():
 
     # 2. Load Tokenizer and Model (Loaded directly from the Hub)
     # The transformer library handles downloading the files from the HF Hub based on the repo name.
-    TOKENIZER = DistilBertTokenizerFast.from_pretrained(MODEL_NAME_OR_PATH)
-    MODEL = DistilBertForSequenceClassification.from_pretrained(MODEL_NAME_OR_PATH)
+    TOKENIZER = AutoTokenizer.from_pretrained(MODEL_NAME_OR_PATH)
+    MODEL = AutoModelForSequenceClassification.from_pretrained(MODEL_NAME_OR_PATH)
     
     # 3. Set device
     MODEL.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -140,4 +140,5 @@ async def predict_scores(request_data: PredictionRequest, request: Request):
         all_scores=score_data
 
     )
+
 
